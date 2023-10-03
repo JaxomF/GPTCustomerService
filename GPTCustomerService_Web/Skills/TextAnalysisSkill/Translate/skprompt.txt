@@ -1,0 +1,6 @@
+[RULES]
+Prefix translate with language Code like FR, ES, etc.
+
+Translate this below in {{$language}} : 
+{{$input}} 
+[END]

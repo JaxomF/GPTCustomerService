@@ -6,4 +6,63 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Skills\TextAnalysisSkill\Anonymize\skprompt.txt" />
+    <None Remove="Skills\TextAnalysisSkill\ExtractBrand\skprompt.txt" />
+    <None Remove="Skills\TextAnalysisSkill\NextActions\skprompt.txt" />
+    <None Remove="Skills\TextAnalysisSkill\Sentiment\skprompt.txt" />
+    <None Remove="Skills\TextAnalysisSkill\Summarize\skprompt.txt" />
+    <None Remove="Skills\TextAnalysisSkill\Translate\skprompt.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Skills\TextAnalysisSkill\Anonymize\skprompt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Skills\TextAnalysisSkill\ExtractBrand\skprompt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Skills\TextAnalysisSkill\NextActions\skprompt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Skills\TextAnalysisSkill\Sentiment\skprompt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Skills\TextAnalysisSkill\Summarize\skprompt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Skills\TextAnalysisSkill\Translate\skprompt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SemanticKernel" Version="0.24.230918.1-preview" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Skills\TextAnalysisSkill\Anonymize\config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Skills\TextAnalysisSkill\ExtractBrand\config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Skills\TextAnalysisSkill\NextActions\config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Skills\TextAnalysisSkill\Sentiment\config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Skills\TextAnalysisSkill\Summarize\config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Skills\TextAnalysisSkill\Translate\config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Shared\Components\TranscriptComponent\Default.cshtml" />
+  </ItemGroup>
+
 </Project>

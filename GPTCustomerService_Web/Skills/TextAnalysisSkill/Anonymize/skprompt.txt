@@ -1,0 +1,13 @@
+[ANONYMIZE RULES]
+REPLACE ALL PERSONAL INFORMATION like Name, address, phone, email, etc...
+REPLACE ALL ADDRESS
+DON'T REPLACE EMPLOYEE INFORMATION OF THE COMPANY
+
+Anonymize:
+My name is Steve
++++++
+My name is [***NAME***]
+
+Anonymize this
+{{$input}}
+[END]

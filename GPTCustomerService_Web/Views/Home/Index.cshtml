@@ -1,8 +1,55 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
+<div class="row">
+    <div class="col-5 fixe">
+        <div id="TranscriptResult" class="box text-left invisible" data-url="@Url.Action("Transcript","Home")">
+            <span id="resultTranscript"></span>
+        </div>
+        <div id="spinTranscript" class="invisible">
+            <span class="spinner-border" role="status">
+            </span>
+        </div>
+    </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="col-7">
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary" onclick="GetSummarize();">Summarize</button>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-12 mt-3 mb-3">
+                <div id="SummarizeResult" class="pre" data-url="@Url.Action("GetSummarize","Home")">
+                    <span id="resultSummarize"></span>
+                    <div id="spinSummarize" class="invisible">
+                        <span class="spinner-border" role="status">
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+
+    //On document load finish
+    $(document).ready(function () {
+        GetTranscript();
+    });
+
+    function GetTranscript() {
+        GetViewLoad($("#spinTranscript"), $("#TranscriptResult"), $("#TranscriptResult").data("url"));
+    }
+
+    function GetSummarize() {
+        notifications = document.getElementById('resultSummarize');
+        notifications.innerHTML = "";
+        GetView($("#spinSummarize"), $("#resultSummarize"), $("#SummarizeResult").data("url"), $("#TranscriptResult").html());
+
+    }
+
+
+
+
+</script>
