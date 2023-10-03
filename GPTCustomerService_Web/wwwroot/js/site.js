@@ -95,7 +95,8 @@ function onComplete(response) {
 
 
 //add code to recevie notification from SignalR hub
-const connectionHubUrl = new URL('messageRelayHub', 'https://localhost:7155');
+//const connectionHubUrl = new URL('messageRelayHub', 'https://localhost:7155');
+const connectionHubUrl = new URL('messageRelayHub', 'https://gptcustomerservice.azurewebsites.net/');
 
 const connection = new signalR.HubConnectionBuilder().withUrl(connectionHubUrl.href).withAutomaticReconnect().withHubProtocol(new signalR.JsonHubProtocol()).build();
 
