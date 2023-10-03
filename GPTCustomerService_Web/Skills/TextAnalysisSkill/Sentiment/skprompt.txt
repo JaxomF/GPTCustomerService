@@ -26,6 +26,6 @@ Explains how it's positive or negatif or neutral
 ]
 
 
-Extract all sentiments from each sentences in this text :
+Return only positif or negatif sentiments from sentences in this text :
 {{$input}}
 [END]
