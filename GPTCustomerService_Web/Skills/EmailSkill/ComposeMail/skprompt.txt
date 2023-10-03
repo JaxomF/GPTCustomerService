@@ -1,0 +1,7 @@
+[COMPOSE MAIL RULES]
+CREATE A RESPONSE MAIL TO THE CONVERSATION. Use professional ton.
+
+Create response mail, in {{$language}} for this
+{{$input}}
+
+[End]

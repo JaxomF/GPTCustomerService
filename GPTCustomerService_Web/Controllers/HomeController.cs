@@ -53,11 +53,48 @@ namespace GPTCustomerService_Web.Controllers
             return ViewComponent("SentimentComponent", new { input = texte, language = LANGUAGE });
         }
 
+        //Add getTranslate
+        [AcceptVerbs("POST")]
+        public IActionResult GetTranslate(string texte)
+        {
+            this._logger.LogDebug("Translate receive request.");
+
+            return ViewComponent("TranslateComponent", new { input = texte, language = "English, Espagnol" });
+        }
+
+        //add getAnonymize
+        [AcceptVerbs("POST")]
+        public IActionResult GetAnonymize(string texte)
+        {
+            this._logger.LogDebug("Anonymize receive request.");
+
+            return ViewComponent("AnonymizeComponent", new { input = texte });
+        }
+
+        //add getComposeMail
+        [AcceptVerbs("POST")]
+        public IActionResult GetComposeMail(string texte)
+        {
+            this._logger.LogDebug("ComposeMail receive request.");
+
+            return ViewComponent("ComposeMailComponent", new { input = texte, language = LANGUAGE });
+        }
+
+        //add getnextactions
+        [AcceptVerbs("POST")]
+        public IActionResult GetNextActions(string texte, int actions)
+        {
+            this._logger.LogDebug("NextActions receive request.");
+            actions = 3;
+            return ViewComponent("NextActionsComponent", new { input = texte,actions = actions, language = LANGUAGE });
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        
     }
 }

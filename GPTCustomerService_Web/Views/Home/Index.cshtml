@@ -50,6 +50,80 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary" onclick="GetTranslate();">Translate</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-3 mb-3">
+                <div id="TranslateResult" class="pre" data-url="@Url.Action("GetTranslate","Home")">
+                    <span id="resultTranslate"></span>
+                    <div id="spinTranslate" class="invisible">
+                        <span class="spinner-border" role="status">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary" onclick="GetAnonymize();">Anonymize</button>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-3 mb-3">
+                <div id="AnonymizeResult" class="pre" data-url="@Url.Action("GetAnonymize","Home")">
+                    <span id="resultAnonymize"></span>
+                    <div id="spinAnonymize" class="invisible">
+                        <span class="spinner-border" role="status">
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary" onclick="GetComposeMail();">Compose Mail</button>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-3 mb-3">
+                <div id="ComposeMailResult" class="pre" data-url="@Url.Action("GetComposeMail","Home")">
+                    <span id="resultComposeMail"></span>
+                    <div id="spinComposeMail" class="invisible">
+                        <span class="spinner-border" role="status">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary" onclick="GetNextActions();">Next Actions</button>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-3 mb-3">
+                <div id="NextActionsResult" class="pre" data-url="@Url.Action("GetNextActions","Home")">
+                    <span id="resultNextActions"></span>
+                    <div id="spinNextActions" class="invisible">
+                        <span class="spinner-border" role="status">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 <script>
@@ -75,7 +149,32 @@
         GetView($("#spinSentiment"), $("#resultSentiment"), $("#SentimentResult").data("url"), $("#resultSummarize").text());
     }
 
+    function GetTranslate() {
+        notifications = document.getElementById('resultTranslate');
+        notifications.innerHTML = "";
+        GetView($("#spinTranslate"), $("#resultTranslate"), $("#TranslateResult").data("url"), $("#resultSummarize").text());
+    }
 
+    //add get anonymize
+    function GetAnonymize() {
+        notifications = document.getElementById('resultAnonymize');
+        notifications.innerHTML = "";
+        GetView($("#spinAnonymize"), $("#resultAnonymize"), $("#AnonymizeResult").data("url"), $("#TranscriptResult").html());
+    }
+
+    //add get compose mail
+    function GetComposeMail() {
+        notifications = document.getElementById('resultComposeMail');
+        notifications.innerHTML = "";
+        GetView($("#spinComposeMail"), $("#resultComposeMail"), $("#ComposeMailResult").data("url"), $("#resultSummarize").text());
+    }
+
+    //add Getnextaction
+function GetNextActions() {
+        notifications = document.getElementById('resultNextActions');
+        notifications.innerHTML = "";
+        GetView($("#spinNextActions"), $("#resultNextActions"), $("#NextActionsResult").data("url"), $("#resultSummarize").text());
+    }
 
 
 

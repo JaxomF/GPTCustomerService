@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Skills\EmailSkill\ComposeMail\skprompt.txt" />
     <None Remove="Skills\TextAnalysisSkill\Anonymize\skprompt.txt" />
     <None Remove="Skills\TextAnalysisSkill\ExtractBrand\skprompt.txt" />
     <None Remove="Skills\TextAnalysisSkill\NextActions\skprompt.txt" />
@@ -16,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Skills\EmailSkill\ComposeMail\skprompt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Skills\TextAnalysisSkill\Anonymize\skprompt.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -41,6 +45,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Skills\EmailSkill\ComposeMail\config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="Skills\TextAnalysisSkill\Anonymize\config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
