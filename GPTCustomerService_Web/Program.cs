@@ -16,7 +16,7 @@ builder.Services
 
 
 // Add SignalR as the real time relay service
-builder.Services.AddSignalR();
+builder.Services.AddSignalR(options => options.MaximumParallelInvocationsPerClient = 10);
 
 builder.Services.AddCorsPolicy();
 

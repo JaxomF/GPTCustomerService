@@ -29,6 +29,10 @@ function SpinOff($spin, $result, data) {
 function GetView($spin, $result, $url, $data) {
     //SpinOn($spin, $result);
     OnlySpinOn($spin);
+
+    //Disable all btn css class
+    $(".btn").addClass("disabled");
+
     if ($url === undefined) {
         $url = $result.data("url")
     }
@@ -48,6 +52,7 @@ function GetView($spin, $result, $url, $data) {
     })
         .done(function (result) {
             //SpinOff($spin, $result, result);            
+            
         }).fail(function (jqXHR, textStatus, errorThrown) {
             //SpinOff($spin, $result, ErrorMessage("Error : " + textStatus + "<br/>" + errorThrown));
         });
@@ -95,10 +100,12 @@ function onComplete(response) {
 
 
 //add code to recevie notification from SignalR hub
-//const connectionHubUrl = new URL('messageRelayHub', 'https://localhost:7155');
-const connectionHubUrl = new URL('messageRelayHub', 'https://gptcustomerservice.azurewebsites.net/');
+const connectionHubUrl = new URL('messageRelayHub', 'https://localhost:7155');
+//const connectionHubUrl = new URL('messageRelayHub', 'https://gptcustomerservice.azurewebsites.net/');
 
 const connection = new signalR.HubConnectionBuilder().withUrl(connectionHubUrl.href).withAutomaticReconnect().withHubProtocol(new signalR.JsonHubProtocol()).build();
+connection.maximumParallelInvocationsPerClient = 10;
+
 
 connection.on("ReceiveMessageUpdate", function (messageResponse) {
     if (messageResponse.state === "End") {
@@ -108,53 +115,10 @@ connection.on("ReceiveMessageUpdate", function (messageResponse) {
 
         notifications.innerHTML = html;
 
-        if (messageResponse.whatAbout === "Mesure") {
-            var json = JSON.parse(messageResponse.content);
-
-            notifications.innerHTML = json.bodyPart;
-            //switch human body part for selct on svg
-            switch (notifications.innerText) {
-                case "shoes":
-                    $("#left-foot").removeClass("left-foot");
-                    $("#left-foot").addClass("selectHB");
-                    $("#right-foot").removeClass("right-foot");
-                    $("#right-foot").addClass("selectHB");
-                    break;
-                case "chest":
-                    $("#chest").removeClass("chest");
-                    $("#chest").addClass("selectHB");
-                    break;
-                case "shoulder":
-                    $("#left-shoulder").removeClass("left-shoulder");
-                    $("#left-shoulder").addClass("selectHB");
-                    $("#right-shoulder").removeClass("right-shoulder");
-                    $("#right-shoulder").addClass("selectHB");
-                    break;
-                case "leg":
-                    $("#left-leg").removeClass("left-leg");
-                    $("#left-leg").addClass("selectHB");
-                    $("#right-leg").removeClass("right-leg");
-                    $("#right-leg").addClass("selectHB");
-                    break;
-                case "arm":
-                    $("#left-arm").removeClass("left-arm");
-                    $("#left-arm").addClass("selectHB");
-                    $("#right-arm").removeClass("right-arm");
-                    $("#right-arm").addClass("selectHB");
-                    break;
-                case "waist":
-                    $("#waist").removeClass("waist");
-                    $("#waist").addClass("selectHB");
-                    break;
-            }
-          
-            var divinfos = document.getElementById("infos");
-            var p = document.createElement("p");
-            p.innerHTML = json.bodyPart + "<br/>" + "Taille : " + json.size;
-            divinfos.appendChild(p);
-        }
-
         notifications = null;
+
+        //enable all btn css class
+        $(".btn").removeClass("disabled");
     }
     else {
 
@@ -171,7 +135,6 @@ connection.on("ReceiveMessageUpdate", function (messageResponse) {
             }
         }
     }
-
 });
 
 connection.start().then(function () {
