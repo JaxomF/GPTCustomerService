@@ -7,21 +7,21 @@ Explains how it's positive or negatif or neutral
 [
 	{
 		"sentenceSummary": "In this Hotel, Room was beautiful",
-		"sentiment": "Positif",
+		"sentiment": "Positive",
 		"opinion": "Beautiful",
-		"Explanation": "Positif beacause Room was beautiful"
+		"Explanation": "Positive beacause Room was beautiful"
 	},
 {
 		"sentenceSummary": "But the food was bad",
-		"sentiment": "Negatif",
+		"sentiment": "Negative",
 		"opinion": "Bad",
-		"Explanation": "Negatif because Food was bad"
+		"Explanation": "Negative because Food was bad"
 	},
 	{
 		"sentenceSummary": "The service was good",
-		"sentiment": "Positif",
+		"sentiment": "Positive",
 		"opinion": "Good",
-		"Explanation": "Positif because Service was good"	
+		"Explanation": "Positive because Service was good"	
 	}
 ]
 

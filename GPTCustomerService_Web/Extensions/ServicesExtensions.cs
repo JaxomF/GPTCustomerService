@@ -60,7 +60,7 @@ public static class SKServiceExtensions
                     policy =>
                     {
                         policy.WithOrigins(allowedOrigins)
-                            .WithMethods("GET", "POST", "DELETE")
+                            .WithMethods("GET", "POST", "DELETE", "OPTION")
                             .AllowAnyHeader();
                     });
             });

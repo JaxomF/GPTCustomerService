@@ -8,7 +8,7 @@ namespace GPTCustomerService_Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private const string LANGUAGE = "French";
+        private const string LANGUAGE = "English"; //"French";
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -59,7 +59,7 @@ namespace GPTCustomerService_Web.Controllers
         {
             this._logger.LogDebug("Translate receive request.");
 
-            return ViewComponent("TranslateComponent", new { input = texte, language = "English, Espagnol" });
+            return ViewComponent("TranslateComponent", new { input = texte, language = "French, Spanish, German" });
         }
 
         //add getAnonymize

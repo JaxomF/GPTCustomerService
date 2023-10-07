@@ -11,9 +11,8 @@ builder.Services
     .AddSingleton<ILogger>(sp => sp.GetRequiredService<ILogger<Program>>()) // some services require an un-templated ILogger
     .AddOptions(builder.Configuration)
     .AddAIResponses()
-    //.AddPersistentStore()    
+    //.AddPersistentStore()
     .AddSemanticKernelServices();
-
 
 // Add SignalR as the real time relay service
 builder.Services.AddSignalR(options => options.MaximumParallelInvocationsPerClient = 10);
