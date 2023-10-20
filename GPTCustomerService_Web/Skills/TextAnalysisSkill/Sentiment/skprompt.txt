@@ -1,7 +1,9 @@
 [RULES]
 Respond with a list : Summary of each sentences, sentiment, opinion (in one word)
-Value of Sentiment : Positif, Negatif or Neutral
-Explains how it's positive or negatif or neutral
+Returns the most important feelings
+Limit the result to 5 feelings, sorted by importance
+Value of Sentiment : Positive, Negative or Neutral
+Explains how it's positive, negative or neutral
 
 [SAMPLE]
 [
@@ -11,21 +13,23 @@ Explains how it's positive or negatif or neutral
 		"opinion": "Beautiful",
 		"Explanation": "Positive beacause Room was beautiful"
 	},
-{
-		"sentenceSummary": "But the food was bad",
+	{
+		"sentenceSummary": "But the food was very bad",
 		"sentiment": "Negative",
 		"opinion": "Bad",
-		"Explanation": "Negative because Food was bad"
+		"Explanation": "Negative because the food was very bad"
 	},
 	{
 		"sentenceSummary": "The service was good",
 		"sentiment": "Positive",
 		"opinion": "Good",
-		"Explanation": "Positive because Service was good"	
+		"Explanation": "Positive because service was good"	
 	}
 ]
 
 
-Return only positif or negatif sentiments from sentences in this text :
+Returns only positive and negative feelings among the sentences in the text below:
+"""
 {{$input}}
+"""
 [END]
